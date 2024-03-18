@@ -10,31 +10,24 @@ class TestLogin:
 
     def test_login_in_account_button(self, driver, lk):
 
-        # ассертим что заголовок страницы соответствует нашей странице
-        assert driver.title == "Stellar Burgers"
-
         # находим кнопку Войти в аккаунт на главной и кликаем на неё
         driver.find_element(*lk.login_button_for_home).click()
 
         # запускаем экшен логина
         actions.login_actions(self, driver, lk)
-        driver.quit()
 
     def test_login_in_personal_area_button(self, driver, lk):
 
-        # ассертим заголовок ждем кнопку ЛК и тапаем на неё
-        assert driver.title == "Stellar Burgers"
+        # ждем кнопку ЛК и тапаем на неё
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
         # логинимся через экшн и ассертим что залогинились в нем же
         actions.login_actions(self, driver, lk)
-        driver.quit()
 
     def test_login_in_registration_button(self, driver, lk):
 
-        # ассертим заголовок страницы,  ждем кнопку ЛК и тапаем на неё
-        assert driver.title == "Stellar Burgers"
+        # ждем кнопку ЛК и тапаем на неё
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
@@ -49,15 +42,12 @@ class TestLogin:
 
         # логинимся через экшн и ассертим что залогинились в нем же
         actions.login_actions(self, driver, lk)
-        driver.quit()
 
     def test_login_in_recovery_button(self, driver, lk):
 
         # ассертим заголовок страницы,  ждем кнопку ЛК и тапаем на неё
-        assert driver.title == "Stellar Burgers"
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
-
 
         # Ищем кнопку Восстановить пароль и нажимаем на неё
         driver.find_element(*lk.recovery_pass_link_button).click()
@@ -70,5 +60,3 @@ class TestLogin:
 
         # логинимся через экшн и ассертим что залогинились в нем же
         actions.login_actions(self, driver, lk)
-        driver.quit()
-

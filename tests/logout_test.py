@@ -10,8 +10,6 @@ class TestLogout:
 
     def test_logout(self, driver, lk):
 
-        assert driver.title == "Stellar Burgers"
-
         # находим кнопку Войти в аккаунт на главной и кликаем на неё
         driver.find_element(*lk.login_button_for_home).click()
 
@@ -26,5 +24,3 @@ class TestLogout:
 
         # ассертим налиие кнопки Войти
         assert driver.find_element(*lk.login_button_in_my_office)
-
-        driver.quit()

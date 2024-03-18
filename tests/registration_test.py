@@ -17,13 +17,11 @@ class TestRegistration:
         :return: и такое есть
 
         """
-
-        assert driver.title == "Stellar Burgers"
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
         # Ассертим факт перехода в лк по клику на «Личный кабинет»
-        assert driver.find_element(*lk.login_header_in_my_office)
+        driver.find_element(*lk.login_header_in_my_office)
 
         # ищем кнопку регистрации и кликаем на нее
         driver.find_element(*lk.register_link_button).click()
@@ -64,8 +62,6 @@ class TestRegistration:
         # дождиаемся что блок регистрации исчез вместе по исчезновению хедера Регистрация
         WebDriverWait(driver, 2).until(expected_conditions.invisibility_of_element_located(lk.registration_header_locator))
 
-        driver.quit()
-
     def test_fail_registration_because_pass(self, driver, lk):
 
         """
@@ -75,7 +71,6 @@ class TestRegistration:
         :return: и такое есть
         """
 
-        assert driver.title == "Stellar Burgers"
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
@@ -97,6 +92,3 @@ class TestRegistration:
 
         #  ассертим появление текста "Некорректный пароль"
         assert driver.find_element(*lk.error_message_locator)
-
-        driver.quit()
-

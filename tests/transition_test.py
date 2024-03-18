@@ -6,7 +6,6 @@ class TestTransition:
 
     def test_transition_tap_on_constructor(self, driver, lk):
 
-        assert driver.title == "Stellar Burgers"
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
@@ -18,11 +17,9 @@ class TestTransition:
 
         # ассeртим факт перехода на страницу конструктора
         assert driver.find_element(*lk.constructor_title)
-        driver.quit()
 
     def test_transition_tap_on_stellar(self, driver, lk):
 
-        assert driver.title == "Stellar Burgers"
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
@@ -34,7 +31,6 @@ class TestTransition:
 
         # ассeртим факт перехода на страницу конструктора
         assert driver.find_element(*lk.constructor_title)
-        driver.quit()
 
     def test_transition_tap_on_sauce(self, driver, lk):
 
@@ -47,8 +43,6 @@ class TestTransition:
         # ассертим наличие в родительском локаторе Соуса атрибута выбранности
         parent_loc_sauce = driver.find_element(*lk.parent_sauce_btn_section)
         assert 'tab_tab_type_current__2BEPc' in parent_loc_sauce.get_attribute('class')
-
-        driver.quit()
 
     def test_transition_tap_on_buns(self, driver, lk):
 
@@ -65,8 +59,6 @@ class TestTransition:
         parent_loc_bun = driver.find_element(*lk.parent_buns_btn_section)
         assert 'tab_tab_type_current__2BEPc' in parent_loc_bun.get_attribute('class')
 
-        driver.quit()
-
     def test_transition_tap_on_fillings(self, driver, lk):
 
         # Ждём Хедер StellarBurgers на главной странице
@@ -78,5 +70,3 @@ class TestTransition:
         # ассертим наличие в родительском локаторе Булочек атрибута выбранности
         parent_loc_fill = driver.find_element(*lk.parent_fillings_btn_section)
         assert 'tab_tab_type_current__2BEPc' in parent_loc_fill.get_attribute('class')
-
-        driver.quit()

@@ -7,7 +7,8 @@ from personal_locators import PersonalArea
 def driver():
     driver = webdriver.Chrome()
     driver.get("https://stellarburgers.nomoreparties.site/")
-    return driver
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture(scope='function')
