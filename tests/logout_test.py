@@ -22,5 +22,5 @@ class TestLogout:
         # дожидаемся заголовка Вход
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.login_header_in_my_office))
 
-        # ассертим налиие кнопки Войти
+        # ассертим наличие кнопки Войти
         assert driver.find_element(*lk.login_button_in_my_office)

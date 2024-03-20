@@ -16,14 +16,20 @@ class TestLogin:
         # запускаем экшен логина
         actions.login_actions(self, driver, lk)
 
+        # ассертим логин
+        assert driver.find_element(*lk.logout_button_in_my_office)
+
     def test_login_in_personal_area_button(self, driver, lk):
 
         # ждем кнопку ЛК и тапаем на неё
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(lk.my_office))
         driver.find_element(*lk.my_office).click()
 
-        # логинимся через экшн и ассертим что залогинились в нем же
+        # логинимся через экшн
         actions.login_actions(self, driver, lk)
+
+        # ассертим логин
+        assert driver.find_element(*lk.logout_button_in_my_office)
 
     def test_login_in_registration_button(self, driver, lk):
 
@@ -40,8 +46,11 @@ class TestLogin:
         # Ищем кнопку Войти и тапаем на неё
         driver.find_element(*lk.register_input_link_button).click()
 
-        # логинимся через экшн и ассертим что залогинились в нем же
+        # логинимся через экшн
         actions.login_actions(self, driver, lk)
+
+        # ассертим логин
+        assert driver.find_element(*lk.logout_button_in_my_office)
 
     def test_login_in_recovery_button(self, driver, lk):
 
@@ -60,3 +69,6 @@ class TestLogin:
 
         # логинимся через экшн и ассертим что залогинились в нем же
         actions.login_actions(self, driver, lk)
+
+        # ассертим логин
+        assert driver.find_element(*lk.logout_button_in_my_office)

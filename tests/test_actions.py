@@ -32,4 +32,3 @@ class TestActions:
         # Дожидаемся кнопку Выход и ассертим
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(lk.logout_button_in_my_office))
-        assert driver.find_element(*lk.logout_button_in_my_office)
